@@ -112,7 +112,7 @@ const GlassCard = ({ children, className = '', animate = true }: any) => {
 // --- Views ---
 
 const HomeView = ({ setView }: { setView: (v: View) => void }) => {
-  const whatsappConsulting = "https://wa.me/33756858255?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20la%20formation%20marketing%20digital";
+  const whatsappConsulting = "https://wa.me/33756858255?text=bonjour%2C%20je%20me%20permets%20de%20vous%20%C3%A9crire%20afin%20d'avoir%20des%20renseignement%20sur%20la%20formation%20marketing%20digital.";
   
   return (
     <div className="space-y-8 pb-24">
@@ -162,7 +162,7 @@ const HomeView = ({ setView }: { setView: (v: View) => void }) => {
 };
 
 const DiscoverFormationsView = ({ setView }: { setView: (v: View) => void }) => {
-  const whatsappLink = "https://wa.me/33756858255?text=bonjour,%20je%20souhaite%20en%20savoir%20plus%20sur%20la%20formation%20marketing%20digital.";
+  const whatsappLink = "https://wa.me/33756858255?text=bonjour%2C%20je%20me%20permets%20de%20vous%20%C3%A9crire%20afin%20d'avoir%20des%20renseignement%20sur%20la%20formation%20marketing%20digital.";
 
   return (
     <div className="px-6 pt-12 pb-24 space-y-8">
@@ -227,7 +227,7 @@ const DiscoverFormationsView = ({ setView }: { setView: (v: View) => void }) => 
           </p>
         </div>
 
-        <Button onClick={() => { setView('home'); window.scrollTo(0, 0); }} className="w-full py-4 text-lg">
+        <Button onClick={() => window.open(whatsappLink)} className="w-full py-4 text-lg">
           <MessageCircle size={20} /> En savoir plus
         </Button>
       </div>
