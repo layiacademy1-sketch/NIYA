@@ -148,14 +148,37 @@ const HomeView = ({ setView }: { setView: (v: View) => void }) => {
         </Button>
       </section>
 
-      <section className="px-6 space-y-4">
-        <GlassCard 
-          onClick={() => window.open(whatsappConsulting)} 
-          className="cursor-pointer flex flex-col items-center justify-center text-center gap-4 py-10 bg-rose-accent/5 border-rose-accent/30 moving-light-yellow animate-pulse-yellow"
+      <section className="px-6">
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          onClick={() => window.open(whatsappConsulting)}
+          className="w-full relative overflow-hidden group rounded-2xl p-8 flex flex-col items-center justify-center text-center gap-4 bg-gradient-to-br from-rose-accent/20 to-rose-accent/5 border border-rose-accent/30 shadow-[0_0_30px_rgba(255,45,85,0.1)]"
         >
-          <Calendar className="text-rose-accent" size={40} />
-          <span className="font-black text-lg uppercase italic">Prendre rendez-vous <br /> consulting gratuit</span>
-        </GlassCard>
+          <div className="absolute top-0 right-0 p-3">
+            <div className="bg-rose-accent text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider animate-pulse">
+              Gratuit
+            </div>
+          </div>
+          
+          <div className="p-4 rounded-full bg-rose-accent/10 text-rose-accent group-hover:scale-110 transition-transform duration-300">
+            <Calendar size={32} />
+          </div>
+          
+          <div className="space-y-1">
+            <h3 className="font-black text-xl uppercase italic tracking-tight">
+              Prendre rendez-vous
+            </h3>
+            <p className="text-rose-accent/80 font-medium text-sm uppercase tracking-widest">
+              Consulting offert
+            </p>
+          </div>
+
+          <div className="flex items-center gap-2 text-xs font-bold text-gray-400 uppercase tracking-widest mt-2">
+            <MessageCircle size={14} className="text-green-500" />
+            Contact direct WhatsApp
+          </div>
+        </motion.button>
       </section>
     </div>
   );
