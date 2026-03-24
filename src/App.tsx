@@ -112,7 +112,7 @@ const GlassCard = ({ children, className = '', animate = true }: any) => {
 // --- Views ---
 
 const HomeView = ({ setView }: { setView: (v: View) => void }) => {
-  const whatsappConsulting = "https://wa.me/33756858255?text=bonjour,%20je%20souhaite%20prendre%20rendez-vous%20pour%20un%20consulting%20gratuit.";
+  const whatsappConsulting = "https://wa.me/33756858255?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20la%20formation%20marketing%20digital";
   
   return (
     <div className="space-y-8 pb-24">
@@ -143,7 +143,7 @@ const HomeView = ({ setView }: { setView: (v: View) => void }) => {
           <span className="text-rose-accent">marketing digital</span>
         </motion.h1>
         <p className="text-gray-400 text-lg mb-8 font-medium">Consulting 100% gratuit, accompagnement</p>
-        <Button onClick={() => setView('discover')} className="animate-pulse-rose">
+        <Button onClick={() => { setView('discover'); window.scrollTo(0, 0); }} className="animate-pulse-rose">
           En savoir plus <ArrowRight size={20} />
         </Button>
       </section>
@@ -161,7 +161,7 @@ const HomeView = ({ setView }: { setView: (v: View) => void }) => {
   );
 };
 
-const DiscoverFormationsView = () => {
+const DiscoverFormationsView = ({ setView }: { setView: (v: View) => void }) => {
   const whatsappLink = "https://wa.me/33756858255?text=bonjour,%20je%20souhaite%20en%20savoir%20plus%20sur%20la%20formation%20marketing%20digital.";
 
   return (
@@ -227,7 +227,7 @@ const DiscoverFormationsView = () => {
           </p>
         </div>
 
-        <Button onClick={() => window.open(whatsappLink)} className="w-full py-4 text-lg">
+        <Button onClick={() => { setView('home'); window.scrollTo(0, 0); }} className="w-full py-4 text-lg">
           <MessageCircle size={20} /> En savoir plus
         </Button>
       </div>
@@ -241,11 +241,15 @@ export default function App() {
   const [view, setView] = useState<View>('home');
   const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [view]);
+
   const renderView = () => {
     if (isLoading) return null;
     switch (view) {
       case 'home': return <HomeView setView={setView} />;
-      case 'discover': return <DiscoverFormationsView />;
+      case 'discover': return <DiscoverFormationsView setView={setView} />;
       default: return <HomeView setView={setView} />;
     }
   };

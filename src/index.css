@@ -39,10 +39,9 @@
     content: '';
     position: absolute;
     z-index: -1;
-    inset: -2px;
-    background: conic-gradient(from var(--angle, 0deg), transparent, #fbbf24, transparent 30%);
+    inset: -100%;
+    background: conic-gradient(from 0deg, transparent 0%, transparent 70%, #fbbf24 100%);
     animation: rotate 4s linear infinite;
-    border-radius: inherit;
   }
 
   @keyframes rotate {
